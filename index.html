@@ -45,7 +45,7 @@ try {
       var binaryDerString = window.atob(pemContents);
       var binaryDer = new ArrayBuffer(binaryDerString.length);
       var bufView = new Uint8Array(binaryDer);
-      for (let i = 0, strLen = binaryDerString.length; i < strLen; i++) {
+      for (var i = 0, strLen = binaryDerString.length; i < strLen; i++) {
         bufView[i] = binaryDerString.charCodeAt(i);
       }
       return binaryDer;
