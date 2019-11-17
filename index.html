@@ -40,10 +40,10 @@ try {
     var privKey = '-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1wDLwQe1rDba2mqlt7emjeKa2Ae7KeiBtb/J0UsypEhHgW772BE19cFYMs/XQWGOElYVmPAfdFBcYNMrnO8QowLrVqOIWKcNjS16CQ6+OwjjH+j+MQH5TFmNLcRltRp/vtCntbFoSPCfv+YxbVvit/L6CaSJ5uFHHmQyATBk9ZfgfORuyWxKZ4eEpZ/808doJy9wLM5RGHM2u1iWC2DjxHOzA+bCvFnr6ccvILe2cWxIdW6KX2Guy6nUogbld4QrPKNVsgwRHo7c2hPfm8CVXr895bVGd6X6hq3TZco1N9vkHdCMXSfYlQdcQfINkGXuMn2yQ6LM8L5gwCYmQ/X/LAgMBAAECggEABb4Zl4ZfVyAUs1O5e1WZw1Mz4hFQ90kBKEpx6ZbKJgqbnpakUHqihigCZNFbOKa3GKcIX+QRE/B0EFnVEi+AJN3kdibC/S2ubj86sIWTkPOpcdKCDbWywbMcSdoJElWGbSXCPPqAJNsnIEmmufLkCMwXd60uhfqhOHWPmkHAes3/c+XY2rKscUXfFWUOGQww9KKgkY2RrIW7pNRJdGDjynxQU7OFVXPB1QDIuDz37T4++Iju1dECLrmHUQ2d20OBZNuTABd1r8rthsjRgyxy1mqaGATHtT8I8kEO/2YODJMlnPQD55pfDI9FlXpR43oyYGbkCcZC12myWZK2BIN86QKBgQDe3wQvnNryFjnD3AxmO1c1EYtxJJ7WXLdNj1weorkoaUWor1K4ZLMFBPU0FabT69J6E9++0eLmKDQZQ83mop6bDM9NdHK8fn7Xaf40LYjSt+YovGDIRlfjOxOp0zjJ4GFX2PRgMMrLU2QWr2mPhNOD3OAz4Edree3TN53cxRMc2QKBgQDQxGqVWik12NX5XgGFmhbRUyV0Fr4UjW1xEcymjCivzkjUoJZDX81jflrpvDvwFjXCoT0p6icF6jCveCObodVmgP2a80vijR66OfINACMQvwlRwLyB+HFaXEtCh7JPDUCykF+JSWQffdH21Pn1d6Ln2YaFGO+71oPdz7Oqa3irQwKBgCYQXs2m83nvM9Rwq6l2LxHAOlmLkJk54pCbkHcnAYqWWDBUKUOW50BPNXW80O5W027IICmd/Suj6Cn8e5kNYxtGF825urLYw98UmjbdJAYhJG0Gp1ztLqt/dn9FtOg9q0JuqmYXTztkta5uLRA29k0KFzyk7G29uFGfqRWAjyAZAoGAGCLtU7El3JTiQD9vG5wyESd0yBQtC8FCKvVs3MCNn63Q28xpMwbrfxpHtohNwbc/pe3wXV01/8gQsujH7SFrw7scFwMT/fBk4hD6/CfM5g3ALRSEdt5bdKABD4MSyXL1zO9GLGAw1Dc+xDPhZlDbo8SReeflJ6loe4ec9RIR1HMCgYBac6N58olb31heKVb5nULziuriiOgoH0miVD0REbEgLSGJIiCE9kDd7no2RoYGpgJw2i4XhA79yP6fjO64iNbDqv9ifpwudJZNYjj0gSWSJBZ+/ppfJ9iha/UWRq3GEJFQZhj3c4RQ7i+tXmvXVyI5lsu759KCxS0rRLaXse/NVw==\n-----END PRIVATE KEY-----'
 
     var getRawKey = function(type, pem) {
-      var pemHeader = '-----BEGIN ${type} KEY-----\n';
-      var pemFooter = '\n-----END ${type} KEY-----';
+      var pemHeader = '-----BEGIN ${type} KEY-----';
+      var pemFooter = '-----END ${type} KEY-----';
       var pemContents = pem.substring(pemHeader.length, pem.length - pemFooter.length);
-      var binaryDerString = window.atob(pemContents);
+      var binaryDerString = window.atob(pemContents.trim());
       var binaryDer = new ArrayBuffer(binaryDerString.length);
       var bufView = new Uint8Array(binaryDer);
       for (var i = 0, strLen = binaryDerString.length; i < strLen; i++) {
