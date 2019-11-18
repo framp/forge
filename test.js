@@ -6,7 +6,7 @@ try {
     if (window.crypto)
       return crypto.subtle[fnName].apply(crypto.subtle, args)
     if (window.msCrypto){
-      function Promise(e){var o,r=1,c=0;function t(e){r=2,o=e,c&&i(c)}function i(t){1!==r?setTimeout(function(){var e,n;if(e=3===r?t.q:t.k)try{n=e(o),t.l(n)}catch(e){t.v(e)}else 3===r?t.l(o):t.v(o)},1):c=t}this.then=function(t,o){return new Promise(function(e,n){i({q:t,k:o,l:e,v:n})})},e(function e(n){try{if(n&&"function"==typeof n.then)return void n.then(e,t);r=3,o=n,c&&i(c)}catch(e){t(e)}},t)}
+      window.Promise = window.Promise || function Promise(e){var o,r=1,c=0;function t(e){r=2,o=e,c&&i(c)}function i(t){1!==r?setTimeout(function(){var e,n;if(e=3===r?t.q:t.k)try{n=e(o),t.l(n)}catch(e){t.v(e)}else 3===r?t.l(o):t.v(o)},1):c=t}this.then=function(t,o){return new Promise(function(e,n){i({q:t,k:o,l:e,v:n})})},e(function e(n){try{if(n&&"function"==typeof n.then)return void n.then(e,t);r=3,o=n,c&&i(c)}catch(e){t(e)}},t)}
       return new Promise(function(resolve, reject) {
         var instance = msCrypto.subtle[fnName].apply(msCrypto.subtle, args)
         instance.oncomplete = function(event) { resolve(event.target.result) }
