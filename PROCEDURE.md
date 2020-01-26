@@ -20,6 +20,7 @@ PRO:
  - Password is never sent in clear to the server
  - Passwordless is possible
  - Secret is not stored on the server (password can't be stolen from server and bruteforced)
+
 CONS:
  - New device is required to be registered
 
@@ -43,6 +44,7 @@ Login:
 PRO:
  - Password is never sent in clear to the server
  - 2 factor authentication is not needed
+
 CONS:
  - Passwordless is not possible
  - Secret is stored on the server (password can be stolen from server and bruteforced)
