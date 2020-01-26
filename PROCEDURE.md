@@ -1,11 +1,4 @@
-Mode 1:
-PRO:
-Password is never sent in clear to the server
-Passwordless is possible
-Secret is not stored on the server (password can't be stolen from server and bruteforced)
-CONS:
-New device is required to be registered
-
+## Mode 1:
 Registration:
  - User generates keypair
  - User encrypt private key with a password optionally
@@ -23,13 +16,15 @@ Login:
  - User decrypts A and B
  - User sends A and B
 
-Mode 2:
 PRO:
-Password is never sent in clear to the server
-2 factor authentication is not needed
-CONS;
-Passwordless is not possible
-Secret is stored on the server (password can be stolen from server and bruteforced)
+ - Password is never sent in clear to the server
+ - Passwordless is possible
+ - Secret is not stored on the server (password can't be stolen from server and bruteforced)
+CONS:
+ - New device is required to be registered
+
+
+## Mode 2:
 
 Registration:
  - User generates keypair
@@ -44,3 +39,10 @@ Login:
  - User decrypts the private key with the password
  - User decrypts A and B
  - User sends A and B
+
+PRO:
+ - Password is never sent in clear to the server
+ - 2 factor authentication is not needed
+CONS:
+ - Passwordless is not possible
+ - Secret is stored on the server (password can be stolen from server and bruteforced)
