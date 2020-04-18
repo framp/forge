@@ -1,3 +1,9 @@
+# minitaur
+
+WIP
+
+A zero knowledge auth system.
+
 ## Mode 1:
 Registration:
  - User generates keypair
