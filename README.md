@@ -1,6 +1,7 @@
 # minitaur
 
-WIP
+ABANDONED.
+[WebAuthn](https://webauthn.guide/) is exactly the same as minitaur's Mode 1, so just use that.
 
 A zero knowledge auth system.
 
